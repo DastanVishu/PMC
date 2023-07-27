@@ -20,13 +20,9 @@ const Base = ({children}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white"
-        // alignItems: 'center', 
+        backgroundColor: "white",
+        alignItems: 'center', 
         // justifyContent: 'center'
-    },
-    image: {
-        flex: 1,
-        justifyContent: 'center'
     }
 })
 
