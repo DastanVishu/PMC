@@ -3,13 +3,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import Base from "../components/pageBase";
 // import theme from '../../theme';
 
-const HomePage = () => {
+const OtpPage = () => {
   return (
     <Base>
-      <Text style={{color: "black"}}>hello</Text>
+      <Text style={{color: "black"}}>OTP</Text>
     </Base>
   );
 }
 
 
-export default HomePage
+export default OtpPage;
