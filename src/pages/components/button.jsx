@@ -10,7 +10,9 @@ const CustomButton = (props) => {
                 ...styles.container, 
                 height: props.buttonStyle.height,
                 width: props.buttonStyle.width,
-                backgroundColor: props.buttonStyle.backgroundColor
+                backgroundColor: props.buttonStyle.backgroundColor,
+                paddingHorizontal: props.buttonStyle.h? props.buttonStyle.h:15,
+                paddingVertical: props.buttonStyle.v? props.buttonStyle.v:10,
             }
         } onPress={() => props.onPress()} >
             <Text style={props.textStyle} >{props.text}</Text>

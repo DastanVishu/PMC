@@ -178,7 +178,7 @@ const BookApointment = ({navigation}) => {
             text={"Get Appointment"} 
             buttonStyle={{
               height: 48,
-              width: 157,
+              width: 187,
               backgroundColor: light.button
             }}
             onPress={onSubmit}
@@ -213,7 +213,6 @@ const styles = StyleSheet.create({
   },
 
   box: {
-    marginTop: 10,
     justifyContent: "center",
     alignItems: "center"
   },

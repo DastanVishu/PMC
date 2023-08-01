@@ -19,6 +19,7 @@ const commonColor = {
     full: "#FC0000",
     warning: "#FF0000",
     borderColor: "#E2E1E5",
+    otp: "#1BADFF",
     ...commonColor,
   };
   
