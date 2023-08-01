@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Base from "../components/pageBase2";
 import OTPInputView from '@twotalltotems/react-native-otp-input'

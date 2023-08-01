@@ -20,6 +20,7 @@ const commonColor = {
     warning: "#FF0000",
     borderColor: "#E2E1E5",
     otp: "#1BADFF",
+    title2: "#606060",
     ...commonColor,
   };
   

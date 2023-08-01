@@ -21,9 +21,9 @@ const Router = () => {
   return (
     <Stack.Navigator>
         <Stack.Group screenOptions={{headerShown: false}}>
-            {/* <Stack.Screen name="Get Apointment Date" component={GPD} />
+            <Stack.Screen name="Get Apointment Date" component={GPD} />
             <Stack.Screen name="Book Apointment" component={BookApointment} />
-            <Stack.Screen name="OTP" component={OtpPage} /> */}
+            <Stack.Screen name="OTP" component={OtpPage} />
             <Stack.Screen name="Thankyou" component={Thankyou} />
         </Stack.Group>
     </Stack.Navigator>
