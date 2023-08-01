@@ -56,6 +56,10 @@ const Card = (props) => {
     }
 
     const card = ({item}) => {
+        
+        let endtime = moment(item.dateTime, "YYYY-MM-DD h:mm A");
+        let cdate = moment();
+        
         return (
             <TouchableOpacity 
                 style={
@@ -93,7 +97,7 @@ const Card = (props) => {
                         styles.bookingSlot:
                         {...styles.bookingSlot, color: light.text}
                         }>
-                        { Object.keys(item.data).length?"Booked": "Slot Available"}
+                        { Object.keys(item.data).length?"Appointment Booked": endtime.diff(cdate, "minutes")> 0? "Slot Available":""}
                         </Text>
                 </View>
             </TouchableOpacity>

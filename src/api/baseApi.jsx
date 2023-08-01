@@ -1,5 +1,4 @@
 import axios from "axios";
-import {API_URL} from '@env';
 
 const BaseApi = async (options) => {
     // let token = "";
@@ -7,7 +6,7 @@ const BaseApi = async (options) => {
     // if(token) authHeader = `Bearer ${token}`;
 
     const client = axios.create({
-        baseURL: API_URL,
+        baseURL: "https://popularmaternitycentre.com/api",
         headers: {authorization: authHeader}
     });
 

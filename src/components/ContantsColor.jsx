@@ -17,6 +17,7 @@ const commonColor = {
     inputBorder: "#E2E1E5",
     cross: "#8D8D8D",
     full: "#FC0000",
+    warning: "#FF0000",
     borderColor: "#E2E1E5",
     ...commonColor,
   };

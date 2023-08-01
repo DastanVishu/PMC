@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
     },
     LG: {
-        justifyContent: "center",
-        alignItems: "center"
+        flex: 1
     }
 })
 
