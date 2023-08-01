@@ -7,7 +7,8 @@ import Filed from './components/inputFiled';
 import CustomButton from './components/button';
 import { bookAppointment } from '../api/publicApi'; 
 import { useRoute } from '@react-navigation/native';
-
+import Spinner from 'react-native-loading-spinner-overlay';
+import moment from 'moment';
 const BookApointment = ({navigation}) => {
   const route = useRoute();
   const [war, setWarning] = useState({
@@ -32,6 +33,8 @@ const BookApointment = ({navigation}) => {
       msg: "testing perpose"
     },
   });
+
+  const [spin, setSpin] = useState(false)
 
   const back = () => {
     navigation.goBack()
@@ -65,21 +68,22 @@ const BookApointment = ({navigation}) => {
         name: a.name.value,
         number: a.phone.value
       }
-      
-      console.log(data)
-
+      setSpin(true)
       let res = await bookAppointment(data);
 
       if(Array.isArray(res) && res[0].status == "otp"){
-        navigation.navigate("OTP", {data: data, otp: res[1].otp, time: ""})
+        setSpin(false)
+        navigation.navigate("OTP", {data: {
+        appointment_end_date: moment(route.params.selectedTime, "YYYY-MM-DD h:mm A").add(30, "minutes").format("YYYY-MM-DD h:mm A"),
+        appointment_start_date: route.params?.selectedTime,
+        code: res[1].otp,
+        email: a.email.value,
+        name: a.name.value,
+        number: a.phone.value,
+        message: a.msg.value,
+        resourceId: route.params?.resourceId
+        }, otp: res[1].otp, time: route.params?.selectedTime})
         // saveAppointmentData
-        // appointment_end_date: "2023-08-01 3:30 PM"
-        // appointment_start_date: "2023-08-01 3:00 PM"
-        // code: "9620"
-        // email: "vishuprajapti15@gmail.com"
-        // name: "vishal"
-        // number: "8528235012"
-        // resourceId: "5adf157d99a1ee1bd45ee73d"
       } else {
         ToastAndroid.showWithGravityAndOffset(
           "Please provide valid Email or Phone number",
@@ -88,6 +92,7 @@ const BookApointment = ({navigation}) => {
           25,
           50,
         )
+        setSpin(false)
       }
     } else {
       ToastAndroid.showWithGravityAndOffset(
@@ -97,13 +102,13 @@ const BookApointment = ({navigation}) => {
         25,
         50,
       )
+      setSpin(false)
     }
   }
 
-  console.log(route.params?.selectedTime)
-
   return (
     <Base>
+    <Spinner visible={spin} />
       <ScrollView>
         <View style={styles.crossSection}>
           <CustomButton 

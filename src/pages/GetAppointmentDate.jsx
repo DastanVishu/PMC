@@ -73,7 +73,8 @@ const GAD = ({navigation}) => {
     let cdate = moment();
     let endtime = moment(time, "YYYY-MM-DD h:mm A");
     if(endtime.diff(cdate, "minutes") > 0){
-      navigation.navigate("Book Apointment", {selectedTime: time})
+      console.log(aData.timinghours[0].id)
+      navigation.navigate("Book Apointment", {selectedTime: time, resourceId: aData.timinghours[0].id})
     } else {
       ToastAndroid.showWithGravityAndOffset(
         "Cannot book an appointment in the past",
