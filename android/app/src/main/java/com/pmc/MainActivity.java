@@ -8,6 +8,8 @@ import com.facebook.react.defaults.DefaultReactActivityDelegate;
 
 import org.devio.rn.splashscreen.SplashScreen;
 
+import com.oblador.vectoricons.VectorIconsPackage;
+
 public class MainActivity extends ReactActivity {
 
   /**
