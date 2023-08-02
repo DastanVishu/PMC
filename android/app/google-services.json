@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:743125357758:android:d028a6e6fa8aa638787aef",
+        "mobilesdk_app_id": "1:743125357758:android:3c56eec2707258ae787aef",
         "android_client_info": {
           "package_name": "com.pmc"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "743125357758-7mchmgmpj8vhhgvmpegkqb7ek0eav0ir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pmc",
+            "certificate_hash": "e8a0f2678162c2b76285b14c9fc4e3d3638e6fd9"
+          }
+        },
         {
           "client_id": "743125357758-7psk5qh88bc1i1409mi37pcaeombpr1d.apps.googleusercontent.com",
           "client_type": 3
