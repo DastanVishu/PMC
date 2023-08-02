@@ -73,16 +73,21 @@ const BookApointment = ({navigation}) => {
 
       if(Array.isArray(res) && res[0].status == "otp"){
         setSpin(false)
-        navigation.navigate("OTP", {data: {
-        appointment_end_date: moment(route.params.selectedTime, "YYYY-MM-DD h:mm A").add(30, "minutes").format("YYYY-MM-DD h:mm A"),
-        appointment_start_date: route.params?.selectedTime,
-        code: res[1].otp,
-        email: a.email.value,
-        name: a.name.value,
-        number: a.phone.value,
-        message: a.msg.value,
-        resourceId: route.params?.resourceId
-        }, otp: res[1].otp, time: route.params?.selectedTime})
+        navigation.navigate("OTP", {
+          data: {
+            appointment_end_date: moment(route.params.selectedTime, "YYYY-MM-DD h:mm A").add(30, "minutes").format("YYYY-MM-DD h:mm A"),
+            appointment_start_date: route.params?.selectedTime,
+            code: res[1].otp,
+            email: a.email.value,
+            name: a.name.value,
+            number: a.phone.value,
+            message: a.msg.value,
+            resourceId: route.params?.resourceId
+          }, 
+          otp: res[1].otp, 
+          time: route.params?.selectedTime,
+          resendData: data
+        })
         // saveAppointmentData
       } else {
         ToastAndroid.showWithGravityAndOffset(

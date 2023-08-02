@@ -3,11 +3,11 @@ import Base from "../components/pageBase";
 // import theme from '../../theme';
 import {ExpandableCalendar, AgendaList, CalendarProvider, WeekCalendar} from 'react-native-calendars';
 import moment from "moment";
-import { ToastAndroid, View, Text, StyleSheet } from 'react-native';
+import { ToastAndroid, View, Text, StyleSheet, BackHandler, Alert } from 'react-native';
 import { light } from '../components/ContantsColor';
 import Card from './components/card';
 import {appointmentsdata} from "../api/publicApi";
-
+import { useIsFocused } from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 
 const GAD = ({navigation}) => {
@@ -15,7 +15,8 @@ const GAD = ({navigation}) => {
   const [selectedDate, setSelectedDate] = useState(moment().format("YYYY-MM-DD"))
   useEffect(()=>{
     getAppointmentData();
-  },[])
+  },[useIsFocused()]);
+
 
   const getAppointmentData = async () => {
     let data = await appointmentsdata();
@@ -99,7 +100,10 @@ const GAD = ({navigation}) => {
     <CalendarProvider
       // date={"2021-05-21"}
       date={moment().format("YYYY-MM-DD")}
-      onDateChanged={(date)=> setSelectedDate(date)}
+      onDateChanged={(date)=> {
+        console.log("sssss",date)
+        setSelectedDate(date)
+      }}
       showTodayButton
     >
         <ExpandableCalendar

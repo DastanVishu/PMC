@@ -1,25 +1,28 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, View, Text, Image, ScrollView, BackHandler, Alert} from 'react-native';
 import Base from "../components/pageBase2";
-import OTPInputView from '@twotalltotems/react-native-otp-input'
+
 import { light } from '../components/ContantsColor';
 import Spinner from 'react-native-loading-spinner-overlay';
 import CustomButton from './components/button';
 import { useRoute } from '@react-navigation/native';
+import moment from 'moment';
 // import theme from '../../theme';
 
-const Thankyou = () => {
-
+const Thankyou = ({navigation}) => {
+  const [bookingTime, setBookingTime] = useState("")
   const [spin, setSpin] = useState(false);
   const route = useRoute();
 
+  useEffect(()=>{
+    if(route.params && route.params.bookingDate){
+      setBookingTime(route.params.bookingDate);
+    }
+  },[])
+
   const back = () => {
-    navigation.goBack()
-  }
-
-  const onSubmit = () => {
-
+    // navigation.navigate("Get Apointment Date");
+    navigation.replace("Get Apointment Date")
   }
 
   return (
@@ -38,7 +41,7 @@ const Thankyou = () => {
           </View>
 
           <View style={styles.box2}>
-            <Text style={styles.text2}>August 1, 2023, Tuesday 5:30pm</Text>
+            <Text style={styles.text2}>{moment(bookingTime, "YYYY-MM-DD h:mm A").format("MMMM D, YYYY dddd h:MM A")}</Text>
           </View>
           
         
@@ -59,7 +62,7 @@ const Thankyou = () => {
                 v: 1,
                 h: 1
               }}
-              onPress={onSubmit}
+              onPress={back}
               textStyle={styles.buttontext}
             />
           </View>
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "red",
     marginTop: 60,
     height: 63,
-    width: 234,
+    width: 254,
     justifyContent: "center",
     alignItems: "center"
     

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "743125357758",
+    "project_id": "popularmaternitycentre-2c1eb",
+    "storage_bucket": "popularmaternitycentre-2c1eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743125357758:android:d028a6e6fa8aa638787aef",
+        "android_client_info": {
+          "package_name": "com.pmc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743125357758-7psk5qh88bc1i1409mi37pcaeombpr1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjl4gt1IfQFleu2xnZww_obQJjH9c_qL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743125357758-7psk5qh88bc1i1409mi37pcaeombpr1d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

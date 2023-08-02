@@ -15,4 +15,16 @@ const bookAppointment = async (data) => {
     })
 }
 
-export {appointmentsdata, bookAppointment}
+const savebookedAppointment = async (data) => {
+    return await BaseApi({
+        url: "/saveAppointmentData",
+        data: data,
+        method: "post"
+    })
+}
+
+export {
+    appointmentsdata, 
+    bookAppointment,
+    savebookedAppointment
+}
