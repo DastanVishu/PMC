@@ -11,7 +11,14 @@ function App() {
     // PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+      let notif = remoteMessage.notification;
+      // notif?.android?.imageUrl
+      notif?.body
+      notif?.title
+      
+
+
+      Alert.alert(`${notif?.title}`, `${notif?.body}`);
     });
 
     return unsubscribe;
