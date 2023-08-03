@@ -9,6 +9,7 @@ import { bookAppointment } from '../api/publicApi';
 import { useRoute } from '@react-navigation/native';
 import Spinner from 'react-native-loading-spinner-overlay';
 import moment from 'moment';
+import { getToken } from '../utils/commonUtils';
 const BookApointment = ({navigation}) => {
   const route = useRoute();
   const [war, setWarning] = useState({
@@ -69,8 +70,8 @@ const BookApointment = ({navigation}) => {
         number: a.phone.value
       }
       setSpin(true)
+      let token = await getToken()
       let res = await bookAppointment(data);
-
       if(Array.isArray(res) && res[0].status == "otp"){
         setSpin(false)
         navigation.navigate("OTP", {
@@ -82,7 +83,8 @@ const BookApointment = ({navigation}) => {
             name: a.name.value,
             number: a.phone.value,
             message: a.msg.value,
-            resourceId: route.params?.resourceId
+            resourceId: route.params?.resourceId,
+            token: token
           }, 
           otp: res[1].otp, 
           time: route.params?.selectedTime,
